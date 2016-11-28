@@ -12,7 +12,8 @@ bool indexed(int index[], int len, int step, int i) {
   return false;
 }
 
-void shuffle(int arr[], int index[], int len, int step) {
+template <typename T>
+void shuffle(T arr[], int index[], int len, int step) {
   if (step < len) {
     for (int i=0;i<len;i++) {
       if (!indexed(index, len, step, i)) {
@@ -28,7 +29,9 @@ void shuffle(int arr[], int index[], int len, int step) {
   }
 }
 
-void shuffle_array(int arr[], int len) {
+template <typename T>
+void shuffle_array(T arr[], int len) {
+  // to store the index of the array
   int *index = new int[len];
   shuffle(arr, index, len, 0);
 
